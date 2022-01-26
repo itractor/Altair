@@ -21,6 +21,15 @@ function fetchTopStocks() {
                 // Examine the text in the response
                 response.json().then(function (data) {
                     console.log(data);
+                    var list = document.createElement("ul");
+                    list.setAttribute('class', 'list-group');
+                    for (let i of data) {
+                        var item = document.createElement("li");
+                        item.setAttribute('class', 'list-group-item')
+                        item.innerHTML = i["name"];
+                        list.appendChild(item);
+                    }
+                    document.getElementById("stocklist").appendChild(list);
                 });
 
             }
