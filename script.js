@@ -27,6 +27,7 @@ function fetchTopStocks() {
                         var item = document.createElement("li");
                         item.setAttribute('class', 'list-group-item')
                         item.innerHTML = i["name"];
+                        item.addEventListener('click', function() { alert(i["name"]); });
                         list.appendChild(item);
                     }
                     document.getElementById("stocklist").appendChild(list);
@@ -36,6 +37,11 @@ function fetchTopStocks() {
         ).catch(function(err) {
             console.log('Fetch Error :-S', err);
           });
+}
+
+function fetchSelectedStock() {
+
+    
 }
 
 window.onload = fetchTopStocks;
